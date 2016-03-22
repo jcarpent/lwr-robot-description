@@ -361,18 +361,27 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://./meshes/convex/arm_flanche_convex.stl" scale="1.0 1.0 1.0"/>
+        <!--mesh filename="package://./meshes/convex/arm_flanche_convex.stl" scale="1.0 1.0 1.0"/-->
+        <mesh filename="package://./meshes/arm_flanche.dae" scale="100 100 100"/>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.01</mu>
+            <mu2>0.01</mu2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
   </link>
   <gazebo reference="lwr_arm_7_link">
     <!--<material value="kuka-lwr.material"/>-->
   </gazebo>
-  <joint name="lwr_arm_hand_fixed_joint" type="fixed">
+  <!--joint name="lwr_arm_hand_fixed_joint" type="fixed">
     <parent link="lwr_arm_7_link"/>
     <child link="lwr_tool_mount"/>
   </joint>
-  <link name="lwr_tool_mount"/>
+  <link name="lwr_tool_mount"/-->
   <!--xacro:lwr_arm_gazebo_controller namespace="" prefix="lwr" port="49938"/-->
 </robot>
 
